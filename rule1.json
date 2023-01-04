@@ -1,0 +1,11 @@
+[{
+    "id": 1001,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+	"regexFilter": "(buffalonews\\.com.*paywall|buffalonews\\.com\\/metrics\\/api\\/|bntech\\.io\\/|\\/tncms\\/api\\/access\\.js)",
+      "resourceTypes": ["stylesheet", "script"]
+    }
+}]
