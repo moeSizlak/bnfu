@@ -97,4 +97,14 @@ var fu = {Authorized:"yes", data:{Name:'BNFU!'}, Name:'BNFU!'};
 
 document.cookie = "bnUserInfo=" + encodeURIComponent(Base64.encode(JSON.stringify(fu)))   + "; path=/";
 
+ function deleteCookie(name) {
+	document.cookie = name + "=; expires=" + (new Date(0)).toUTCString() + ";";
+};
+function findCookies(name) {
+	var r=[];
+	document.cookie.replace(new RegExp("("+name + "[^= ]*) *(?=\=)", "g"), function(a, b, ix){if(/[ ;]/.test(document.cookie.substr(ix-1, 1))) r.push(a.trim()); console.log(a.trim())})
+	return r;
+};
+findCookies("tncms").forEach(function(fullName){deleteCookie(fullName);});
+
 

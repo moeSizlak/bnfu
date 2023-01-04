@@ -1,11 +1,8 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
     "name": "bnfu",
     "description": "Paywall defeater for Buffalo News",
-    "version": "3.7.3",
-    "background": {
-		"scripts": ["bnfu.js"]
-	},
+    "version": "4.0.0",
 	"content_scripts": [
 		{
 			"matches": ["*://*.buffalonews.com/*"],
@@ -15,17 +12,26 @@
 	],
 	"permissions": [
 		"cookies",
-		"webRequest",
-		"webRequestBlocking",
+		"declarativeNetRequest"
+	],
+	"host_permissions": [
 		"*://*.buffalonews.com/*",
 		"*://*.bntech.io/*"
 	],
-	"icons": { 
+	  "icons": { 
 		"16": "icon16.png",
 		"48": "icon48.png",
 		"128": "icon128.png" 
 	},
-	"web_accessible_resources": [
-    	"or.js"
-	]
+	"web_accessible_resources": [{
+		"resources": ["or.js"],
+		"matches": ["<all_urls>"]
+	}],
+	"declarative_net_request" : {
+		"rule_resources" : [{
+		  "id": "ruleset_1",
+		  "enabled": true,
+		  "path": "rule1.json"
+		}]
+	}
 }
